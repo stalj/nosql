@@ -21,7 +21,7 @@ _paginate: false
 - Relational Databases (Postgres)
 - Document-Oriented Databases (MongoDB)
 - In-memory Key–Value Databases (Redis)
-- Graph Databases (Neo4j)
+- Graph Databases (Neo4j) 
    
 ---
 
