@@ -69,25 +69,59 @@ _NoSQL Databases_
 
 ---
 
+# Syntax Errors Example
+
+```json
+{
+  'store': "Green Grocery",
+  "isOpen": true,
+  "employeeCount": 5,
+  city: "Cracow",
+  "categories": ["fruit", "vegetables"],
+  "discountPercent": null,
+}
+```
+3 errors
+
+---
+
 # JSON Schema
 
-![width:700](https://json-schema.org/img/json_schema.svg)
+![width:800](https://json-schema.org/img/json_schema.svg)
 
-[JSON Schema Specification](https://json-schema.org/)
+---
+
+# Get Started with JSON Schema
+
+[JSON Schema Specification](https://json-schema.org/learn)
 
 ---
 
 # JSON Schema Example
 
+```json
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "properties": {
+    "id": { "type": "integer" },
+    "username": { "type": "string" },
+    "email": { "type": "string", "format": "email" },
+    "age": { "type": "integer", "minimum": 18 }
+  },
+  "required": ["id", "username", "email"]
+}
+```
 
 ---
 
 # JSON Schema Validators
 
-- online
+- Online
   - https://jsonschema.dev/
   - https://www.jsonschemavalidator.net/
 - VS Code
+- Standalone apps
 
 ---
 
