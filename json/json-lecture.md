@@ -5,21 +5,41 @@ paginate: true
 size: 16:9
 ---
 
-# Java Sscript Object Notation
-========================================
+<!--
+_class: lead invert
+_paginate: false
+-->
+
+# JSON
+# Java Script Object Notation
+_NoSQL Databases_
 
 ---
 
 # JSON
-1. Simple data interchange format
-1. JavaScript Object Notation
-1. JSON based on JavaScript
-1. JavaScript in most web browsers
-2. Object:
-   
-```json
-{ "key1": "value1", "key2": "value2" }
-```
+- Java Script Object Notation
+- Lightweight data interchange format
+- Industry standard for REST APIs
+- In document-based databases (e.g. MongoDB)
+- Standard for configurations files
+- Based on JavaScript (JavaScript in most web browsers)
+
+---
+
+# Manuals and tutorials
+   - [Introducting JSON](https://www.json.org/json-en.html)
+   - [What is JSON? 5 min tutorial](https://youtu.be/cj3h3Fb10QY?si=bcaGKYnFazXt0oag)
+   - [What is JSON? simple tutorial](https://youtube.com/shorts/pMYTlfoZ1_4?si=SBI-BOCwtUsnfs_8)
+
+---
+
+# JSON Data Types
+
+- Primitive types:
+  **String (always enclosed in double quotes " "!), Number, Boolean (true/false), Null**
+
+- Complex types:
+  **Object {} and Array []**
 
 ---
 
@@ -41,11 +61,43 @@ size: 16:9
 
 ---
 
-# JSON Schema
+# Common Syntax Errors
 
-Confident and reliable use of the JSON data format
-
-https://json-schema.org/
+- Trailing commas at the end of objects or arrays
+- Single quotes ' ' instead of double quotes " "
+- Unquoted object keys
 
 ---
 
+# JSON Schema
+
+![width:700](https://json-schema.org/img/json_schema.svg)
+
+[JSON Schema Specification](https://json-schema.org/)
+
+---
+
+# JSON Schema Example
+
+
+---
+
+# JSON Schema Validators
+
+- online
+  - https://jsonschema.dev/
+  - https://www.jsonschemavalidator.net/
+- VS Code
+
+---
+
+<!--
+_class: lead invert
+_paginate: false
+-->
+
+# Practical Tasks
+
+---
+
+# Task 1
