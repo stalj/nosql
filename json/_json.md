@@ -96,7 +96,7 @@ https://www.json.org/json-en.html
 
 # JSON Schema
 
-![width:800](https://json-schema.org/img/json_schema.svg)
+![width:800](json_schema.svg)
 
 ---
 
