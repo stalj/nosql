@@ -217,3 +217,37 @@ Create a schema file named product_schema.json to validate catalog items for an 
   - online
   - vs code 
 - correct the json file to conform to the schema
+
+---
+
+# Schema Binding
+
+You are provided with a pre-configured schema user_schema.json that enforces rules for user profile objects.
+
+Using the schema, validate the user.json file. Make changes to make the user.json file compliant with the schema.
+
+---
+
+# Validating Complex Structures
+
+Design a comprehensive schema named order_schema.json to validate a customer purchase order.
+
+1. The root element must be an object with the following properties:
+
+- orderId: Must be a string
+- customer: A nested object containing:
+    - fullName (string, required)
+    - email (string formatted as email, required)
+
+---
+
+- items: An array of objects (minimum 1 item required). Each item object must have:
+
+    - sku (string, required)
+    - quantity (integer, minimum 1, required)
+    - unitPrice (number, positive, required)
+
+- status: Must be an enum with values: "pending", "shipped", "delivered", "cancelled".
+
+2. Create a corresponding order.json file and verify that adding an unapproved property (e.g., "discountCode": "SAVE10") immediately triggers a validation error.
+

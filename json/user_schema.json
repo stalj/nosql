@@ -1,0 +1,15 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "properties": {
+    "username": { "type": "string", "pattern": "^[a-zA-Z0-0_]+$" },
+    "email": { "type": "string", "format": "email" },
+    "age": { "type": "integer", "minimum": 18, "maximum": 120 },
+    "roles": {
+      "type": "array",
+      "items": { "type": "string" },
+      "minItems": 3
+    }
+  },
+  "required": ["username", "email", "roles"]
+}
