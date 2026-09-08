@@ -161,6 +161,15 @@ Design and create a JSON file named inventory.json to manage an electronics stor
 
 ---
 
+# Fixing JSON Data
+
+In the server_config.json:
+
+1. Remove all syntax errors
+1. Format the data properly
+
+---
+
 # Data Refactoring
 
 You are provided with a simple courses.json file containing a flat array of programming courses: 
@@ -182,4 +191,29 @@ Refactor and expand this document so that:
 
 ---
 
+# Creating a Basic Schema
 
+Create a schema file named product_schema.json to validate catalog items for an online store.
+
+1. Define a schema that validates a single JSON Object representing a product.
+
+---
+
+2. Define the following properties and rules:
+
+- productId: Must be an integer.
+- title: Must be a string with a minimum length of 3 characters.
+- price: Must be a number with a minimum value of 0.01.
+- category: Must be a string limited to one of these exact values using enum: "electronics", "books", "clothing".
+- inStock: Must be a boolean.
+
+3. Require the following fields: productId, title, price, and inStock.
+
+--- 
+
+4. For product.json file:
+- fix syntax errors
+- check for schema compliance using:
+  - online
+  - vs code 
+- correct the json file to conform to the schema
