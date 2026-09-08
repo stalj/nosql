@@ -1,0 +1,7 @@
+[
+  { "code": "CS101", "title": "Introduction to Computer Science", "instructor": "John Doe" },
+  { "code": "CS102", "title": "Data Structures & Algorithms", "instructor": "Jane Smith" },
+  { "code": "CS103", "title": "Relational Databases & SQL", "instructor": "Alan Turing" },
+  { "code": "CS104", "title": "Object-Oriented Programming in Java", "instructor": "Grace Hopper" },
+  { "code": "CS105", "title": "Web Development Fundamentals", "instructor": "Tim Berners-Lee" }
+]

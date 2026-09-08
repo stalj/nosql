@@ -33,6 +33,15 @@ _NoSQL Databases_
 
 ---
 
+# JSON Main Structure
+
+- A collection of name/value pairs (object)
+- An ordered list of values (array)
+
+https://www.json.org/json-en.html
+
+---
+
 # JSON Data Types
 
 - Primitive types:
@@ -134,4 +143,43 @@ _paginate: false
 
 ---
 
-# Task 1
+# Building Nested JSON Structure
+
+Design and create a JSON file named inventory.json to manage an electronics store's stock. The root element must be an object containing:
+
+1. Store metadata: storeName (string), isActive (boolean), and lastUpdated (string in ISO-8601 format, e.g., "2026-09-08T10:00:00Z").
+
+---
+
+2. A products array containing at least 3 objects. Each product object must include:
+
+- id (integer)
+- name (string)
+- price (number)
+- tags (array of strings, e.g., ["laptop", "clearance"])
+- specs (a nested object with at least two fields, e.g., manufacturer, warrantyMonths).
+
+---
+
+# Data Refactoring
+
+You are provided with a simple courses.json file containing a flat array of programming courses: 
+
+```json
+[
+  { "code": "CS101", "title": "Introduction to SQL", "instructor": "John Doe" },
+  { "code": "CS102", "title": "MongoDB in Practice", "instructor": "Jane Smith" }
+]
+```
+
+---
+
+Refactor and expand this document so that:
+
+- The root element is converted from a top-level array to a root object containing: university ("Tech University"), semester (5), and a courseList array holding the courses.
+- The instructor field (currently a plain string) is converted into a nested object with fullName, academicTitle, and email.
+- An enrolledStudents array is added to each course object. It should contain an array of objects, each with a studentId (integer) and a finalGrade (number, or null if the course is ongoing).
+
+---
+
+
