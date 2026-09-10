@@ -1,2 +1,2 @@
-# nosql
-Bazy Danych noSQL
+# NoSQL Databases
+

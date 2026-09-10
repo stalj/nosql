@@ -1,43 +1,52 @@
 ---
 marp: true
-theme: gaia
+theme: default
 paginate: true
 size: 16:9
-footer: NoSQL Databases
 ---
 
 <!--
-_header: ''
-_footer: ''
+_class: lead invert
 _paginate: false
 -->
 
 # INTRODUCTORY LESSON
 
+_Course: NoSQL Databases_
+
 ---
 
-# Course Structure
+# Course Topics
+- Relational Databases (Postgres) 
 - Simple Data Interchange Format (JSON)
-- Relational Databases (Postgres)
-- Document-Oriented Databases (MongoDB)
 - In-memory Key–Value Databases (Redis)
+- Document-Oriented Databases (MongoDB)
+- Search-Oriented Document Databases (Elasticsearch)
 - Graph Databases (Neo4j) 
    
 ---
 
-# Tools
+# Course Tools
 
-- Linux Virtual Machine (Oracle VirtualBox Image)
+- Version Control System (Git and Github)
+- Oracle VirtualBox
+- Linux Virtual Machine (Ubuntu / x86 architecture)
 - Visual Studio Code with extensions
-- Docker
-- Version Control System (Git) and Github
+- Database Containers (Docker)
+
+---
+
+# Class Materials
+
+GitHub repository:
+https://github.com/stalj/nosql.git
 
 ---
 
 # Conditions for Passing Course
 
 - Attendance at classes
-- Tests
+- Practical Tests
 - Quizes
 
 ---
