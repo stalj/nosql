@@ -247,11 +247,6 @@ HLEN cart:user:202
 
 # Running Redis
 
-1. `docker --version` sprawdź, czy docker działa
-
-1. `docker pull redis:alpine` pobierz Redis 
-
-1. `docker run --name redis_lab -p 6379:6379 -d redis:alpine` uruchom kontener z Redis
-
-1. W VS Code, utwórz połączenie z Redis, login i hasło pozostaw puste
-
+1. Open a terminal window in the `redis` folder.
+1. Start the Redis container: `docker compose up -d`
+1. In VS Code (using the Database Client extension), create a connection to Redis; leave the username and password blank.
