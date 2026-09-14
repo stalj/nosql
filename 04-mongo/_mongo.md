@@ -138,9 +138,8 @@ _paginate: false
 2. Open a terminal window in the `mongo` folder.
 3. Run MongoDB: `docker compose up -d`
 4. Create a connection to MongoDB in VS Code (use Database Client extension).
-   - Username: `mongo`
-   - Database: `mongo`
-   - Password: `mongo`
+   - Username: `root`
+   - Password: `password`
    
 ---
 
