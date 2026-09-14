@@ -213,6 +213,167 @@ _paginate: false
 
 # Practical Tasks
 
+
+---
+
+# Running Redis
+
+1. Clone `nosql` repository in VS Code.
+2. Open a terminal window in the `redis` folder.
+3. Run Redis: `docker compose up -d`
+4. Create a connection to Redis in VS Code (use Database Client extension), 
+
+   > _Leave username and password blank._
+
+---
+
+# Task 1: Basic Key-Value Data Management & Caching
+
+Scenario:
+
+You are building an in-memory caching layer for a high-traffic web application. You need to store user session tokens, manage page view counters, and handle temporary promotional discount codes that automatically expire.
+
+Execute commands step-by-step to populate Redis and perform required operations.
+
+---
+
+**Step A: Managing User Sessions (Strings & Expiration)**
+
+Create a session key for a logged-in user and set it to expire automatically after 30 seconds to simulate session timeout.
+
+```bash
+-- 1. Create a session key with value 'user_42'
+SET session:token:xyz987 "user_42"
+
+-- 2. Set an expiration time of 30 seconds on the session
+EXPIRE session:token:xyz987 30
+
+-- 3. Check the remaining Time-To-Live (TTL) in seconds
+TTL session:token:xyz987
+
+-- 4. Retrieve the session value before it expires
+GET session:token:xyz987
+```
+
+---
+
+**Step B: Building Atomic Counters (INCR / INCRBY)**
+
+Track real-time statistics for page views and website visits using atomic increment operations.
+
+```bash
+-- 1. Initialize a page view counter for the homepage
+SET stats:pageviews:home 100
+
+-- 2. Increment the counter by 1 (simulating a new visit)
+INCR stats:pageviews:home
+
+-- 3. Add 50 views at once (simulating a batch update)
+INCRBY stats:pageviews:home 50
+
+-- 4. Read the updated counter value
+GET stats:pageviews:home
+```
+
+---
+
+**Step C: Temporary Promo Codes (SET with EX)**
+
+Store a temporary discount code SUMMER2026 that offers a 20% discount and automatically expires in 60 seconds using a single atomic command.
+
+```bash
+-- Create key 'promo:summer' with value '20_OFF' that expires in 60 seconds
+SET promo:summer "20_OFF" EX 60
+
+-- Verify the key exists and check its TTL
+TTL promo:summer
+```
+
+---
+
+**Step D: Key Inspection & Cleanup**
+
+Practice inspecting existing keys and removing expired or unused entries.
+
+```bash
+-- 1. List all keys matching the pattern 'stats:*'
+KEYS stats:*
+
+-- 2. Check if the promo key exists (returns 1 if exists, 0 if not)
+EXISTS promo:summer
+
+-- 3. Delete the pageview counter key manually
+DEL stats:pageviews:home
+```
+
+---
+
+# Task 2: Basic Key-Value Operations & Strings
+
+**Scenario:**
+
+You are tasked with setting up an in-memory caching and configuration store for an e-learning platform. First, you will populate Redis with initial data. Then, you will perform a series of operations to inspect, modify, and manage this data.
+
+---
+
+**Part 1: Data Setup (Populating the Database)**
+
+Run commands contained in the `platform.txt` to initialize the dataset.
+
+**Part 2: Student Exercises (Instructions / Tasks to Perform)**
+
+Write and execute the appropriate Redis commands to perform the following actions:
+
+---
+
+**A. Basic Retrieval & Bulk Reading**
+
+1. Fetch Configuration: Read and display the site name stored in `config:site_name`.
+
+2. Bulk Read User Profile: Retrieve all three attributes (`name`, `email`, and `status`) for User 101 using a single query.
+
+---
+
+**B. Managing TTL & Expiration Timers**
+
+1. Check Promo TTL: Check how many seconds are remaining before the promotional code `promo:code:FALL2026` expires.
+
+2. Extend Session: The user `user:101` performed an action. Extend their active session token `session:token:usr101_abc` so that it stays valid for another 120 seconds.
+
+3. Create Password Reset Code: Create a new key `reset:code:usr101` with the value `"883912"` that automatically deletes itself after 30 seconds.
+
+---
+
+**C. Atomic Counter Operations**
+
+1. Track Daily Logins: A new user just logged in. Atomically increment the `metrics:daily_active_users` counter by 1.
+
+2. Batch Update Metrics: A bulk import added 50 new active users. Increase `metrics:daily_active_users` by 50 in a single operation.
+
+3. Manage Available Slots: A student just registered for a course. Decrement `metrics:available_course_slots` by 1.
+
+---
+
+**D. Conditional Updates & Key Cleanup**
+
+1. Safe Configuration Update: Attempt to update `config:site_name` to `"EduCloud Pro"` only if the key does not already exist (ensure you do not overwrite existing configuration).
+
+2. Key Existence Check: Check if the key `promo:code:FALL2026` is still active in the system.
+
+3. Manual Cleanup: Manually delete the maintenance mode setting `config:maintenance_mode`.
+
+---
+
+
+
+
+
+
+
+
+
+
+
 ---
 
 # AAA
@@ -233,13 +394,3 @@ HDEL cart:user:202 product:880
 # Sprawdzenie liczby unikalnych produktów w koszyku (HLEN)
 HLEN cart:user:202
 # Zwraca: 1
-
----
-
-# Running Redis
-
-1. Open a terminal window in the `redis` folder.
-1. Start the Redis container: `docker compose up -d`
-1. In VS Code (using the Database Client extension), create a connection to Redis
-
-   > _Leave the username and password blank._

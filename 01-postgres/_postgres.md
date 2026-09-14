@@ -119,9 +119,10 @@ _paginate: false
 
 # Running PostgreSQL
 
-1. Open a terminal window in the `postgres` folder.
-2. Start the container: `docker compose up -d`
-3. Create a connection in VS Code (use Database Client extension).
+1. Clone `nosql` repository in VS Code.
+2. Open a terminal window in the `postgres` folder.
+3. Run PostgreSQL: `docker compose up -d`
+4. Create a connection to PostgreSQL in VS Code (use Database Client extension).
    - Username: `postgres`
    - Database: `postgres`
    - Password: `postgres`

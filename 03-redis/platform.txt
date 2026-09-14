@@ -1,0 +1,24 @@
+-- 1. Global Platform Configuration
+SET config:site_name "EduCloud Learning Platform"
+SET config:max_login_attempts "5"
+SET config:maintenance_mode "false"
+
+-- 2. Initial User Information (Flat Key-Value Strings)
+SET user:101:name "John Doe"
+SET user:101:email "john.doe@example.com"
+SET user:101:status "active"
+SET user:102:name "Ann may"
+SET user:102:email "ann.may@example.com"
+SET user:102:status "active"
+SET user:103:name "Peter Red"
+SET user:103:email "peter.red@example.com"
+SET user:103:status "active"
+
+-- 3. System Metrics and Active Counters
+SET metrics:daily_active_users "1250"
+SET metrics:available_course_slots "15"
+
+-- 4. Temporary Security and Discount Tokens
+SET promo:code:FALL2026 "15_PERCENT_OFF" EX 60
+SET session:token:usr101_abc "active_session" EX 45
+
