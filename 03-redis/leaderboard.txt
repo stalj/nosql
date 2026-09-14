@@ -1,0 +1,9 @@
+-- 1. Initialize Global Player Leaderboard (Key: leaderboard:global)
+-- Format: ZADD key score member
+ZADD leaderboard:global 1500 "Player_Alpha"
+ZADD leaderboard:global 2300 "Player_Bravo"
+ZADD leaderboard:global 1850 "Player_Charlie"
+ZADD leaderboard:global 3100 "Player_Delta"
+ZADD leaderboard:global 950  "Player_Echo"
+ZADD leaderboard:global 2750 "Player_Foxtrot"
+

@@ -1,0 +1,14 @@
+-- 1. Hashes: Structured User Profiles (Key-Field-Value)
+HSET user:1001 name "Alice Smith" email "alice@example.com" age 28 city "Krakow" status "premium"
+HSET user:1002 name "Bob Jones" email "bob@example.com" age 35 city "Warsaw" status "standard"
+
+-- 2. Lists: Customer Support Ticket Queue (Ordered Sequences)
+LPUSH support:queue "ticket_101: Account access issue"
+LPUSH support:queue "ticket_102: Payment failure"
+LPUSH support:queue "ticket_103: Order status delay"
+
+-- 3. Sets: Product Tags & Category Memberships (Unique Unordered Collections)
+SADD tags:laptop "electronics" "portable" "work" "sale"
+SADD tags:smartphone "electronics" "portable" "mobile" "5g"
+SADD tags:clearance "sale" "refurbished"
+

@@ -241,19 +241,23 @@ Execute commands step-by-step to populate Redis and perform required operations.
 
 Create a session key for a logged-in user and set it to expire automatically after 30 seconds to simulate session timeout.
 
-```bash
--- 1. Create a session key with value 'user_42'
-SET session:token:xyz987 "user_42"
+1. Create a session key with value 'user_42'
 
--- 2. Set an expiration time of 30 seconds on the session
-EXPIRE session:token:xyz987 30
+       SET session:token:xyz987 "user_42"
 
--- 3. Check the remaining Time-To-Live (TTL) in seconds
-TTL session:token:xyz987
+2. Set an expiration time of 30 seconds on the session
 
--- 4. Retrieve the session value before it expires
-GET session:token:xyz987
-```
+       EXPIRE session:token:xyz987 30
+
+---
+
+3. Check the remaining Time-To-Live (TTL) in seconds
+
+       TTL ...
+
+4. Retrieve the session value before it expires
+
+       GET ...
 
 ---
 
@@ -261,19 +265,23 @@ GET session:token:xyz987
 
 Track real-time statistics for page views and website visits using atomic increment operations.
 
-```bash
--- 1. Initialize a page view counter for the homepage
-SET stats:pageviews:home 100
+1. Initialize a page view counter for the homepage
 
--- 2. Increment the counter by 1 (simulating a new visit)
-INCR stats:pageviews:home
+       SET stats:pageviews:home 100
 
--- 3. Add 50 views at once (simulating a batch update)
-INCRBY stats:pageviews:home 50
+2. Increment the counter by 1 (simulating a new visit)
 
--- 4. Read the updated counter value
-GET stats:pageviews:home
-```
+       INCR ...
+
+---
+
+3. Add 50 views at once (simulating a batch update)
+
+       INCRBY ...
+
+4. Read the updated counter value
+
+       ...
 
 ---
 
@@ -281,13 +289,9 @@ GET stats:pageviews:home
 
 Store a temporary discount code SUMMER2026 that offers a 20% discount and automatically expires in 60 seconds using a single atomic command.
 
-```bash
--- Create key 'promo:summer' with value '20_OFF' that expires in 60 seconds
-SET promo:summer "20_OFF" EX 60
+1. Create key 'promo:summer' with value '20_OFF' that expires in 60 seconds
 
--- Verify the key exists and check its TTL
-TTL promo:summer
-```
+1. Verify the key exists and check its TTL
 
 ---
 
@@ -295,16 +299,17 @@ TTL promo:summer
 
 Practice inspecting existing keys and removing expired or unused entries.
 
-```bash
--- 1. List all keys matching the pattern 'stats:*'
-KEYS stats:*
+1. List all keys matching the pattern 'stats:*'
 
--- 2. Check if the promo key exists (returns 1 if exists, 0 if not)
-EXISTS promo:summer
+       KEYS stats:*
 
--- 3. Delete the pageview counter key manually
-DEL stats:pageviews:home
-```
+2. Check if the promo key exists (returns 1 if exists, 0 if not)
+
+       EXISTS ...
+
+3. Delete the pageview counter key manually
+
+       ...
 
 ---
 
@@ -364,33 +369,131 @@ Write and execute the appropriate Redis commands to perform the following action
 
 ---
 
+# Task 3: Advanced Data Structures (Hashes, Lists & Sets)
 
+**Scenario:**
 
-
-
-
-
-
-
-
+You are developing backend features for an e-commerce platform. You need to store structured user profiles (Hashes), process incoming customer support requests in a FIFO queue (Lists), and manage unique product tags and overlapping categories (Sets).
 
 ---
 
-# AAA
+**Part 1: Data Setup (Populating the Database)**
 
-Przykład 2: Koszyk zakupowy w sklepie internetowym
-Struktura Hash sprawdza się świetnie przy przechowywaniu stanu koszyka dla danego użytkownika, gdzie polem jest identyfikator produktu, a wartością jego ilość.
+Run commands contained in the `ecommerce.txt` to initialize the dataset.
 
-Bash
-# Użytkownik "user:202" dodaje do koszyka przedmioty
-HSET cart:user:202 product:550 2 product:880 1
+**Part 2: Student Exercises (Instructions / Tasks to Perform)**
 
-# Dodanie kolejnej sztuki produktu 550
-HINCRBY cart:user:202 product:550 1
+Write and execute the appropriate Redis commands to perform the following actions:
 
-# Usunięcie produktu 880 z koszyka (HDEL)
-HDEL cart:user:202 product:880
+---
 
-# Sprawdzenie liczby unikalnych produktów w koszyku (HLEN)
-HLEN cart:user:202
-# Zwraca: 1
+**A. Working with Hashes (Structured Objects)**
+
+1. Retrieve User Profile Field: Fetch and display only the `email` of `user:1001`.
+
+       HGET user:1001 email
+
+1. Retrieve Full User Object: Read all fields and values stored inside `user:1002` in a single query.
+
+       HGETALL ...
+
+1. Update Profile & Increment Field:
+
+   - Change the `city` of `user:1001` to `"Wroclaw"`.
+
+   - Increment the `age` of `user:1001` by 1 year (using `HINCRBY`).
+
+1. Inspect Hash Keys: List all field names (keys) stored inside `user:1001` without retrieving their values.
+
+---
+
+**B. Working with Lists (Queues & Logs)**
+
+1. Inspect the Queue: View all pending support tickets currently in `support:queue` from first to last without deleting them.
+
+       LRANGE support:queue 0 -1
+
+2. Process Queue Items (FIFO): A support agent is ready to process a request. Pop and retrieve the oldest ticket from the queue.
+
+       RPOP ...
+
+3. Add Urgent Ticket: Push a new high-priority ticket `"ticket_104: VIP payment issue"` to the tail (right side) of `support:queue` so it gets processed next.
+
+       RPUSH ...
+
+---
+
+**C. Working with Sets (Unique Collections & Intersections)**
+
+1. Check Tag Membership: Check if the tag `"electronics"` exists inside `tags:smartphone`.
+
+       SISMEMBER tags:smartphone "electronics"
+
+2. Find Shared Attributes (Set Intersection): Find all common tags shared between laptops and smartphones (`tags:laptop` and `tags:smartphone`).
+
+       SINTER ...
+
+3. Combine Collections (Set Union): Get a list of all unique tags across both `tags:laptop` and `tags:clearance` (without duplicates).
+
+4. Remove Tag: Remove the tag `"sale"` from `tags:laptop`.
+
+---
+
+# Task 4: Ranked Leaderboards & Score-Based Sorting (Sorted Sets)
+
+**Scenario:**
+
+You are developing the leaderboard and matchmaking module for an online gaming platform. You need to store player scores, rank players globally, update scores dynamically, and retrieve top performers or players within specific score ranges.
+
+---
+
+**Part 1: Data Setup (Populating the Database)**
+
+Run commands contained in the `leaderboard.txt` to initialize the dataset.
+
+**Part 2: Student Exercises (Instructions / Tasks to Perform)**
+
+Write and execute the appropriate Redis commands to perform the following actions:
+
+---
+
+**A. Basic Ranking & Leaderboards**
+
+1. Retrieve Bottom 3 Players: Fetch the 3 players with the lowest scores (ascending order) along with their actual scores.
+
+       ZRANGE leaderboard:global 0 2 WITHSCORES
+
+1. Retrieve Top 3 Players (Leaderboard): Fetch the 3 players with the highest scores (descending order) along with their scores.
+
+       ZREVRANGE leaderboard:global 0 2 WITHSCORES
+
+2. Check Specific Player Rank: Find the global rank of `"Player_Charlie"` (where rank 0 represents the player with the highest score).
+
+       ZREVRANK ...
+
+---
+
+**B. Score Inspection & Filtering**
+
+1. Get Player Score: Retrieve the exact current score of `"Player_Bravo"`.
+
+       ZSCORE leaderboard:global "Player_Bravo"
+
+1. Count Players in Range: Count how many players have a score between 1500 and 2500 (inclusive).
+
+       ZCOUNT ...
+
+1. Fetch Players by Score Range: List all players (and their scores) who have a score between 2000 and 3500, ordered from highest to lowest score.
+
+       ZREVRANGEBYSCORE ...
+
+---
+
+**C. Score Updates & Player Removal**
+
+1. Increment Player Score: `"Player_Alpha"` completed a quest and earned 400 bonus points. Update their score atomically using `ZINCRBY`.
+
+1. Re-check Rank After Update: Check `"Player_Alpha"`'s new score and updated rank on the global leaderboard.
+
+1. Remove Inactive Player: `"Player_Echo"` deleted their account. Remove them from the leaderboard.
+
