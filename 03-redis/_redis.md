@@ -76,7 +76,7 @@ Standard Template: `resource : id : attribute`
 - `product:550:stock` $\rightarrow$ Stock count for Product 550
 - `session:xyz987:ttl` $\rightarrow$ Authentication session token
 
-> GUI Advantage: Visual tools (e.g., VS Code Database Client) automatically parse colons into virtual expandable folders!
+> _GUI Advantage: Visual tools (e.g., VS Code Database Client) automatically parse colons into virtual expandable folders!_
 
 ---
 
@@ -196,15 +196,6 @@ Redis keeps data in memory, but persists it to disk using two mechanisms:
 
 ---
 
-# Zapis danych na dysk
-
-SAVE
-
-`dump.rdb`
-
-
----
-
 # Redis Cheet Sheet
 
 https://redis.io/tutorials/howtos/quick-start/cheat-sheet/
@@ -249,4 +240,6 @@ HLEN cart:user:202
 
 1. Open a terminal window in the `redis` folder.
 1. Start the Redis container: `docker compose up -d`
-1. In VS Code (using the Database Client extension), create a connection to Redis; leave the username and password blank.
+1. In VS Code (using the Database Client extension), create a connection to Redis
+
+   > _Leave the username and password blank._

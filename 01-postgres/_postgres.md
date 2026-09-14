@@ -117,6 +117,17 @@ _paginate: false
 
 ---
 
+# Running PostgreSQL
+
+1. Open a terminal window in the `postgres` folder.
+2. Start the container: `docker compose up -d`
+3. Create a connection in VS Code (use Database Client extension).
+   - Username: `postgres`
+   - Database: `postgres`
+   - Password: `postgres`
+   
+---
+
 # Task 1: Database Setup
 
 Run the `employees.sql` to create the table structure and insert the sample dataset.
