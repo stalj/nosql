@@ -10,7 +10,7 @@ _class: lead invert
 _paginate: false
 -->
 
-# INTRODUCTORY LESSON
+# INTRODUCTION
 
 _Course: NoSQL Databases_
 
@@ -36,24 +36,29 @@ _Course: NoSQL Databases_
 
 ---
 
-# Class Materials
-
-GitHub repository:
-https://github.com/stalj/nosql.git
-
----
-
 # Conditions for Passing Course
 
-- Attendance at classes
-- Practical Tests
-- Quizes
+- Class attendance (60% min. / 10pts)
+- Practical Tests (3 x 10pts)
 
 ---
 
-# Running Software
+# Student Account Configuration
 
-- Signing up for Course on Moodle
-- Creating a copy of the Git repository
-- Launching Linux
-- 
+1. Join the team on Teams
+   - team code: `sb8poic`
+2. Sign up for the course on Moodle
+   - course: `NoSQL Databases`
+   - access key: `Dean's full group number, e.g. ZIISN2-2312IO
+`
+3. Create a fork of the course materials
+   - `https://github.com/stalj/nosql.git`
+
+---
+
+# Running Software in Computer Lab
+
+1. Linux Virtual Machine
+2. VS Code
+3. Github Repository
+
