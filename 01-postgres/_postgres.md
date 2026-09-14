@@ -117,7 +117,7 @@ _paginate: false
 
 ---
 
-# Database Setup
+# Task 1: Database Setup
 
 Run the `employees.sql` to create the table structure and insert the sample dataset.
 Then write SELECT queries to fulfill the following business requests:
@@ -137,7 +137,7 @@ Then write SELECT queries to fulfill the following business requests:
 
 ---
 
-# Designing & Implementing Relational Schema (DDL)
+# Task 2: Designing & Implementing Relational Schema (DDL)
 
 **Scenario:**
 
@@ -249,4 +249,57 @@ SELECT * FROM bookings;
 ```
 
 ---
+
+# Task 3: Multi-Table Analytics & Business Reporting (JOINs, Aggregation & Views)
+
+**Scenario:**
+
+You are building an analytics dashboard for an E-Commerce platform. The database stores information about customers, orders, and order items. Your goal is to write analytical queries to answer key business performance questions and encapsulate complex queries into reusable SQL Views.
+
+**Database Setup**
+Run the ecommerce.sql to create the required tables and populate them with test data.
+
+---
+
+**Operation A: Customer Order History (`JOIN` & Filtering)**
+
+Write a query to display all COMPLETED orders. The output should include:
+
+- `full_name` (Customer)
+- `country`
+- `order_id`
+- `order_date`
+
+---
+
+**Operation B: Revenue Calculation (`JOIN`, `SUM`, `GROUP BY`)**
+
+Calculate the total monetary value spent by each customer.
+
+- Multiply `quantity * unit_price` to get item totals.
+- Group the results by customer `full_name`.
+- Display only `COMPLETED` orders.
+
+---
+
+**Operation C: High-Value Customers (`HAVING`)**
+
+Modify the query from Operation B to show only customers who have spent a total of more than $300.00 across all completed orders.
+
+---
+
+**Operation D: Business View Creation (`CREATE VIEW`)**
+
+Encapsulate the query from Operation B into a reusable view named `v_customer_revenue`:
+
+```sql
+CREATE VIEW v_customer_revenue AS
+SELECT ...
+```
+
+Once created, query the view directly:
+
+```sql
+SELECT * FROM v_customer_revenue WHERE country = 'USA';
+```
 
