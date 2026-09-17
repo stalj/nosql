@@ -10,12 +10,6 @@ _class: lead invert
 _paginate: false
 -->
 
-# INTRODUCTION
-
-_Course: NoSQL Databases_
-
----
-
 # MongoDB & Document Databases
 # Schema-Flexible NoSQL
 
@@ -143,4 +137,5 @@ _paginate: false
    
 ---
 
+# Task 1: ...
 
