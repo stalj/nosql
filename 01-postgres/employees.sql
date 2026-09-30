@@ -43,3 +43,5 @@ INSERT INTO employees (first_name, last_name, email, department, job_title, sala
 ('Xena', 'Warrior', 'xena.warrior@techcorp.com', 'Human Resources', 'Recruiter', 55000.00, '2022-08-15', 'New York', true),
 ('Yusuf', 'Islam', 'yusuf.islam@techcorp.com', 'Sales', 'Sales Associate', 51000.00, '2023-06-20', 'Austin', false);
 
+SELECT * FROM employees;
+

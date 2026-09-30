@@ -119,7 +119,7 @@ _paginate: false
 
 # Running PostgreSQL
 
-1. Clone `nosql` repository in VS Code.
+1. Clone `nosql` repository in VS Code (https://github.com/stalj/nosql.git).
 2. Open a terminal window in the `postgres` folder.
 3. Run PostgreSQL: `docker compose up -d`
 4. Create a connection to PostgreSQL in VS Code (use Database Client extension).
