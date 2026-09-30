@@ -49,8 +49,7 @@ _Course: NoSQL Databases_
    - team code: `sb8poic`
 2. Sign up for the course on Moodle
    - course: `NoSQL Databases`
-   - access key: `Dean's full group number, e.g. ZIISN2-2312IO
-`
+   - access key: `Dean's full group number, e.g. ZIISN2-2312IO`
 3. Create a fork of the course materials
    - `https://github.com/stalj/nosql.git`
 
