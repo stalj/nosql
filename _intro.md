@@ -38,8 +38,8 @@ _Course: NoSQL Databases_
 
 # Conditions for Passing Course
 
-- Class attendance (60% min. / 10pts)
-- Practical Tests (3 x 10pts)
+- Class attendance
+- Practical Tests
 
 ---
 
